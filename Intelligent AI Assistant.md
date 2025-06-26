@@ -42,24 +42,24 @@ In this lab, we will build and deploy 2 agents using the Agent Builder within wa
 
 To get to the watsonx.ai console, go to the [Resources list on the IBM Cloud homepage](https://cloud.ibm.com/resources).
 
-![alt text](images/image33.png)
+![alt text](image33.png)
 
 Expand the `AI / Machine Learning` section and select the resource that has `watsonx.ai Studio` in the Product column, as shown above. Next, click on the downward facing arrow next to the `Launch in` button. Then, select the `IBM watsonx` option.
 
-![alt text](images/image34.png)
+![alt text](image34.png)
 
 ### The watsonx.ai console
 
 > When opening the console for the very first time, you may be greeted by some pop-up windows offering a tour. Click on `Close` for both windows.
 
-![alt text](images/image35.png)
-![alt text](images/image36.png)
+![alt text](image35.png)
+![alt text](image36.png)
 
 The first step to creating any assets within watsonx.ai is to create a Project. A Project is a collaborative workspace where you work with data and other assets to accomplish a particular goal. 
 
 To create a project, scroll down to the section named `Projects`. Then, click on the plus button located at the top right of this section.
 
-![alt text](images/image37.png)
+![alt text](image37.png)
 
 A new window should pop up titled `Create a project`. We will create a new project with the following parameters:
 - Name: Intelligent Assistant Project
@@ -67,15 +67,15 @@ A new window should pop up titled `Create a project`. We will create a new proje
 
 Once all of the information is filled in, click `Create`.
 
-![alt text](images/image38.png)
+![alt text](image38.png)
 
 Now we see the homeview of the new project we have created. First, we will need to associate a watsonx.ai Runtime service in order to create and run any agents. To do so, first click on the `Manage` tab at the top. After, click on the `Services & integrations` tab on the left side.
 
-![alt text](images/image39.png)
+![alt text](image39.png)
 
 Next, click on the blue `Associate service` tab. A new window will pop up, and you should see a single item with `Type` being watsonx.ai Runtime. Click on the checkbox on the left next to the name of the service. Afterwards, click on the blue `Associate` button at the bottom right of the screen. You have now properly set up your project to create your first agents!
 
-![alt text](images/image40.png)
+![alt text](image40.png)
 
 ## The Weather Agent
 
@@ -83,11 +83,11 @@ We will first create a Weather Agent to give us live weather information about a
 
 First, click on the `Assets` tab within your project. You will see a blue `New asset` button on the top right of the screen. Click on this button to open a new screen.
 
-![alt text](images/image41.png)
+![alt text](image41.png)
 
 You will now be presented with a variety of different asset types you can create within watsonx.ai. Today, we will select `Build an AI agent to automate tasks` under the `Work with models` section of this page.
 
-![alt text](images/image42.png)
+![alt text](image42.png)
 
 A new screen will now pop up. This is the Agent Builder in watsonx.ai. This builder allows for you to build fully-customizable no-code and pro-code agents within watsonx.ai. For our Weather Agent, we will need to configure some things in this screen before testing.
 
@@ -98,7 +98,7 @@ First, click on the `Setup` drop down menu at the top of the screen. Here, you w
 Retrieves weather information for any city
 ```
 
-![alt text](images/image43.png)
+![alt text](image43.png)
 
 Next, go to the `Configuration` drop down. Note that the `Instructions` field is very important as it defines the purpose of an agent. The instructions can include using a specific language, date or time format, user greeting, or an external tool as an information source instead of a foundation model's knowledge base.
 - Framework: LangGraph
@@ -108,7 +108,7 @@ Next, go to the `Configuration` drop down. Note that the `Instructions` field is
 You are an agent that retrieves weather information for any city
 ```
 
-![alt text](images/image44.png)
+![alt text](image44.png)
 
 Agents can rely on `Knowledge` and/or a `Toolset` that consists of one or more `Tools`, and we can define all of those elements here. 
 - `Knowledge` represents information that is stored in the form of "embeddings" in a so-called Vector Store. Whenever the agent answers a request, it can choose to run a search against the connected Knowledge repository (i.e. the Vector Store) to search for information that can assist in answering the request. You can either upload documents directly here, or connect the agent to an already existing repository. Note that once again, the "Description" field is key, because it will help the agent decide whether to run a search against the knowledge.
@@ -118,41 +118,41 @@ We will skip the `Knowledge` section for now.
 
 Then in the `Tools` drop down, you should see a `Google search` tool prepopulated as an Added tool. Delete this tool by clicking on the Trash Can icon on the right side of the tool.
 
-![alt text](images/image45.png)
+![alt text](image45.png)
 
 Next, click on the `Add a tool` button. A new screen should pop up allowing you to Select a tool. Here, we want to click on the slider for the `Weather` tool. Then, close the window.
 
-![alt text](images/image46.png)
+![alt text](image46.png)
 
 You have now created your first agent in watsonx.ai! We can now test our new agent in the `Agent preview` section on the right side of the screen. Enter a question about the weather in a city. For example, "What is the weather in New York City?". Furthermore, the agent will remember previous parts of the conversation, so you can ask for some slightly more advanced queries as well. For example, you may now ask, "Can you give that to me in the fahrenheit?". Additionally, it is possible to see the reasoning the agent uses to get the answer. For example, during the first query asking for the weather in New York City, the agent first calls the Weather tool with New York City as the input. Then, upon receiving the response from the tool, will generate a natural language answer that includes the output from the Weather tool.
 
-![alt text](images/image47.png)
+![alt text](image47.png)
 
 Next, we must save the agent. In the top right corner, click on the save icon. Then, click `Save as`.
 
-![alt text](images/image48.png)
+![alt text](image48.png)
 
 You are now presented with a new screen. We have 3 different options of ways we can save our agent: `Agent`, `Standard notebook`, and `Deployment notebook`. These 3 different options give users flexibility during the development process of how they would like to work with their newly created agents. For this lab, we will save our work as an `Agent`. The details should be prefilled. Then, uncheck the `View in project after saving` and click on `Save` at the bottom right corner of the screen.
 
-![alt text](images/image49.png)
+![alt text](image49.png)
 
 Next, we must deploy our agent so that we can access it outside of our watsonx.ai Project. To do so, click on the `Deploy` button next to the `Save` icon. A new screen will pop up. Here, you will see options to create a userAPI key and New Deployment Space. First, create a user API key by clicking the clue Create button at the top right.
 
-![alt text](images/image72.png)
+![alt text](image72.png)
 
 This will open a new tab. In this tab, click on the blue `Create a key` button on the right. 
 
-![alt text](images/image73.png)
+![alt text](image73.png)
 
 This will create a new key. Now, you can close this tab and navigate back to the `Deploy as an AI Service` tab. Here, click on the `Reload` button at the top right.
 
-![alt text](images/image74.png)
+![alt text](image74.png)
 
 Now, you can create your New Deployment Space by clicking on the `New deployment space` button.
 
-![alt text](images/image50.png)
+![alt text](image50.png)
 
-![alt text](images/image51.png)
+![alt text](image51.png)
 
 A new tab will open to set up your deployment space. A deployment space is a place where you can deploy assets and manage those deployments. Fill in the following information:
 - Name: AgentDeploymentSpace
@@ -162,11 +162,11 @@ A new tab will open to set up your deployment space. A deployment space is a pla
 
 Then, click on `Create`. You have now created your deployment space
 
-![alt text](images/image52b.png)
+![alt text](image52b.png)
 
 Once you see the confirmation that "The space is ready", you may return to the previous tab to deploy your Weather Agent. Now, click the `Reload` button and select your newly-created AgentDeploymentSpace under the `Target deployment space` dropdown. Uncheck the `View in space after deploying` box, and click the blue `Deploy` button at the bottom right corner. Your deployment has now started. This will take a few minutes to complete.
 
-![alt text](images/image53.png)
+![alt text](image53.png)
 
 ## The Surplus Agent
 
@@ -174,7 +174,7 @@ This agent analyzes options for the handling of surplus product, and makes recom
 
 First, navigate back to our project by clicking on the Project name, `Intelligent Assistant Project` at the top of the screen.
 
-![alt text](images/image54.png)
+![alt text](image54.png)
 
 Once again, click on `New Asset` and then `Build an AI agent to automate tasks`. In the `Setup` section, enter:
 - Name: Surplus Agent
@@ -183,7 +183,7 @@ Once again, click on `New Asset` and then `Build an AI agent to automate tasks`.
 Provides recommendations about the handling of surplus data 
 ```
 
-![alt text](images/image55.png)
+![alt text](image55.png)
 
 In the `Configuration` drop down, set the following values:
 - Framework: LangGraph
@@ -196,16 +196,16 @@ Context:
 - Use the Surplus data to create answers 
 ```
 
-![alt text](images/image56.png)
+![alt text](image56.png)
 
 In the `Tools` section, get rid of the `Google search` tool. Then click on `Create custom tool`. 
 
-![alt text](images/image57.png)
+![alt text](image57.png)
 
 When you click on this page, you will see a message that you must `Deploy Python engine`. Accept this message to deploy the engine. You will now see the option to select a `Deployment space`. Please select the `AgentDeploymentSpace` that you created earlier in the dropdown menu.
 
-![alt text](images/image58.png)
-![alt text](images/image59.png)
+![alt text](image58.png)
+![alt text](image59.png)
 
 Once finished, you will notice a `Create custom tool` screen with `Name`, `Tool description`, `Input JSON Schema`, and `Python code` sections. This screen allows you to define a custom tool with specific inputs and outputs using Python code which your agent may utilize. For this example, we will simulate the agent grabbing information from a database by having the agent call a Python function that returns a dataframe. Then, the agent will be able to synthesize and provide answers to our questions based on the information in that dataframe.
 
@@ -247,7 +247,7 @@ def get_data():
 
 Then, click on `Create`.
 
-![alt text](images/image60.png)
+![alt text](image60.png)
 
 You have now created your first custom tool in watsonx.ai! We can now test our new agent in the `Agent preview` section on the right side of the screen. Use the following queries as examples:
 * Give me the surplus data
@@ -256,24 +256,24 @@ You have now created your first custom tool in watsonx.ai! We can now test our n
 
 > When doing this in your own instance, you may see answers that differ from the ones shown in the screenshot above. Moreover, the agent will often ask follow-up questions before offering an answer. This is due to the undeterministic nature of the AI models involved. Feel free to experiment with different types of questions to see how the agent reacts. The same equally applies to all the agents described further down.
 
-![alt text](images/image61.png)
-![alt text](images/image62.png)
+![alt text](image61.png)
+![alt text](image62.png)
 
 Once again, we will save the agent using the `Save as` button. Please the save it as an `Agent`.
 
-![alt text](images/image63.png)
+![alt text](image63.png)
 
 Then, `Deploy` the agent in the `AgentDeploymentSpace`. This time, ensure that you check the box that states "View in space after deploying".
 
-![alt text](images/image64.png)
+![alt text](image64.png)
 
 Now, you should be in the `Deployment` page of your `AgentDeploymentSpace`. You will see three different deployments: (1) Python Interpreter Service, (2) Surplus Agent, (3) Weather Agent. 
 
-![alt text](images/image65.png)
+![alt text](image65.png)
 
 You will need to grab your credentials from the Surplus Agent and Weather Agent you have created to bring your agents into watsonx Orchestrate. To do so, first click on the Surplus Agent. Then, you will see 4 endpoints. You will want to save the streaming endpoint in a text editor.
 
-![alt text](images/image66.png)
+![alt text](image66.png)
 
 Repeat the same process, grabbing the streaming URL from the Weather Agent.
 
@@ -281,38 +281,38 @@ You have now completed the first part of the lab. You have learned how to naviga
 
 ## watsonx Orchestrate
 
-As shown in the [Solution Architecture](./images/UpdatedIAArchitecture.png), we will build and deploy the majority of the agents for the solution in watsonx Orchestrate.
+As shown in the [Solution Architecture](./UpdatedIAArchitecture.png), we will build and deploy the majority of the agents for the solution in watsonx Orchestrate.
 
 To get to the watsonx Orchestrate console, go to the [Resources list on the IBM Cloud homepage](https://cloud.ibm.com/resources).
 
-![alt text](images/image52.png)
+![alt text](image52.png)
 
 Expand the `AI / Machine Learning` section and select the resource that has `watsonx Orchestrate` in the Product column, as shown above. Next, click on the `Launch watsonx Orchestrate` button.
 
-![alt text](images/image1.png)
+![alt text](image1.png)
 
 This opens the watsonx Orchestrate console.
 
-![alt text](images/image2.png)
+![alt text](image2.png)
 
 ### The watsonx Orchestrate console
 
 > When opening the console for the very first time, you may be greeted by a pop-up window offering that you create your first agent. Click on `Skip for now`.
 
-![alt text](images/image31.png)
+![alt text](image31.png)
 
 In the console, it shows that no agents have been deployed yet. Thus, if you interact with watsonx Orchestrate at this point, not much will happen, since the system has no agents available to route any request to.
 
 However, you can already interact with the Large Language Model (LLM) that works behind the scenes, and ask general questions, like "How are you today?" or "What is the capital of France?". 
 
-![alt text](images/image3.png)
+![alt text](image3.png)
 
 Go ahead and chat with watsonx Orchestrate to explore what type of answers it gives to your questions.
 
 ### AI Agent Configuration
 We are now ready to build the first agent. In the watsonx Orchestrate console, click on either `Create or Deploy` or `Create new agent` (either will goet you to he same place).
 
-![alt text](images/image4.png)
+![alt text](image4.png)
 
 ### The Secretary Agent
 
@@ -384,7 +384,7 @@ Warehouse Management
 
 Uncheck `Show agent`. Then test the new agent with the Preview, for example, enter "Generate a notification email for the marketing team for SKU: 8932464599 of 10 units". The result should look like in the picture below.
 
-![alt text](images/image15.png)
+![alt text](image15.png)
 
 Make sure you click the `Deploy` button again and return to the agent overview window by clicking the `Manage agents` link at the top left of the window.
 
@@ -399,7 +399,7 @@ We are finally ready to create the agent that acts as the orchestrator for all o
 
 Click on `Create agent` once more. 
 
-![alt text](images/image16.png)
+![alt text](image16.png)
 
 Like the other agents you created already, this one will be created from scratch. The name is "Warehouse Manager Agent". The description differs from the previous agents, indicating that this one is an 'orchestrating', or 'supervising', or 'routing' agent: 
 ```
@@ -408,27 +408,27 @@ The Warehouse Manager Agent is in charge of routing user requests to the most re
 
 After you have entered the information, click on `Create`.
 
-![alt text](images/image17.png)
+![alt text](image17.png)
 
 We had mentioned above that an agent can collaborate with other agents to fulfill a certain task. You enter those collaborator agents in the `Agents` section under `Toolset` in the agent definition window.
 
-![alt text](images/image18.png)
+![alt text](image18.png)
 
 Click on the `Add agent` button. Since we want to add the agents you created above as collaborators to this agent, select the `Add from local instance` option.
 
-![alt text](images/image19.png)
+![alt text](image19.png)
 
 Here you see the Secretary Agent listed that you have created. We want the Warehouse Manager Agent to use it, so check it and click on `Add to agent`. Note that it is possible that you will see more than the three agents covered in this lab (you may have created agents from a different lab, or created some of your own), so make sure you are selecting the right agent.
 
-![alt text](images/image67.png)
+![alt text](image67.png)
 
 But we are not done yet. Click on `Add agent` again. This time, select the `Import` option. This will allow us to import our three agents created in watsonx.ai.
 
-![alt text](images/image21.png)
+![alt text](image21.png)
 
 On the next screen, select the `External agent` option and click on `Next`.
 
-![alt text](images/image22.png)
+![alt text](image22.png)
 
 On the following screen, enter the details about the Traffic Agent:
 - Agent details
@@ -440,7 +440,7 @@ On the following screen, enter the details about the Traffic Agent:
   - Display name: `TrafficAgent` (the name cannot contain a space)
   - Description of agent capabilities: `The TrafficAgent agent provides information about traffic in any given location.`
 
-![alt text](images/image23.png)
+![alt text](image23.png)
 
 Now click on `Import agent`. You should now see the `TrafficAgent` listed in the Toolset section of the Warehouse Manager Agent.
 
@@ -454,7 +454,7 @@ Repeat the same process, now entering details about the Weather Agent. Make sure
   - Display name: `WeatherAgent` (the name cannot contain a space)
   - Description of agent capabilities: `The WeatherAgent agent retrieves weather information for any city.`
 
-![alt text](images/image68.png)
+![alt text](image68.png)
 
 Repeat the process one more time, but for our Surplus Agent. Make sure you are using the Surplus Agent credentials:
 - Agent details
@@ -466,11 +466,11 @@ Repeat the process one more time, but for our Surplus Agent. Make sure you are u
   - Display name: `SurplusAgent` (the name cannot contain a space)
   - Description of agent capabilities: `This SurplusAgent agent fetches all of the relevant data that is necessary to answer queries related to surplus.`
 
-![alt text](images/image69.png)
+![alt text](image69.png)
 
 Now click on `Import agent`. You should now see all four agents listed in the Toolset section of the Warehouse Manager Agent.
 
-![alt text](images/image70.png)
+![alt text](image70.png)
 
 Finally, we give this agent instructions about how to use the collaborator agents we defined earlier. Enter the folllowing text in the `Instructions` field under Behavior.
 ```
@@ -483,15 +483,15 @@ Reasoning:
 
 Before we test this agent, scroll all the to the bottom and make sure the `Show agent` checkbox is actually checked! This is the agent we want to use in the main chat window and make it available to end users.
 
-![alt text](images/image71.png)
+![alt text](image71.png)
 
 Let's test it. Since we haven't touched it before, let's start with the externale TrafficAgent agent. We can trigger it by asking about traffic in a given location, say, Sydney Australia. Enter the following into the Preview text input: "Please tell me about traffic around central Sydney, Australia." (You can obviously pick any other location, too.)
 
-![alt text](images/image26.png)
+![alt text](image26.png)
 
 Note that the agent was "reasoning", in other words, determining how to answer this request. It decided that routing the request to the TrafficAgent was the best option. You can expand the `Show reasoning` section in the Preview and see which steps the agent took. It should list one step, which you can expand as well.
 
-![alt text](images/image27.png)
+![alt text](image27.png)
 
 Note how it selected the Traffic agent to answer the request, which was obviously the right choice in this case.
 
@@ -511,20 +511,20 @@ You can now test the routing to the other agents, possibly using the same or sim
 - "How do we handle surplus on truck T001?"
 - "Please create a notification email ..."
   
-![alt text](images/image28.png)
+![alt text](image28.png)
 
 Once you are satisfied with the answer, deploy this agent using the `Deploy` button as with the other agents before. Since we left the `Show agent` option checked, we can now go back to the home screen to see it there. Simply click on `watsonx Orchestrate` at the very top of the window.
 
-![alt text](images/image29.png)
+![alt text](image29.png)
 
 Now you can enter your questions and requests in the main chat window. Note how the Warehouse Manager agent is already preselected under the Agents list on the left (it is the only agent appearing in that list anyway). You can use the same questions you asked when testing the individual agents above.
  
-![alt text](images/image30.png)
+![alt text](image30.png)
 
 We encourage you to explore the behavior of the solution further, by asking more "loaded" questions, which involve more than one agent to answer. For example, you could ask "Please tell me about the status of the warehouse docks and let me know what to do with surplus if there is any." Note how you may get asked follow-up clarification questions by the agent, to retrieve more specific information, for example, which exact truck ID you are asking about.
 What this is trying to show is how you can send fairly detailed questions and instructions to an agent, but you can also give it more autonomy in how to address a request, by involving multiple agents and tools.
 
-![alt text](images/image32.png)
+![alt text](image32.png)
 
 Congratulations! You have create a complete agentic AI solution, without writing a single line of code! 
 
