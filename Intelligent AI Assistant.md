@@ -136,7 +136,19 @@ You are now presented with a new screen. We have 3 different options of ways we 
 
 ![alt text](images/image49.png)
 
-Next, we must deploy our agent so that we can access it outside of our watsonx.ai Project. To do so, click on the `Deploy` button next to the `Save` icon. A new screen will pop up and you will see an option to create a New Deployment Space.
+Next, we must deploy our agent so that we can access it outside of our watsonx.ai Project. To do so, click on the `Deploy` button next to the `Save` icon. A new screen will pop up. Here, you will see options to create a userAPI key and New Deployment Space. First, create a user API key by clicking the clue Create button at the top right.
+
+![alt text](images/image72.png)
+
+This will open a new tab. In this tab, click on the blue `Create a key` button on the right. 
+
+![alt text](images/image73.png)
+
+This will create a new key. Now, you can close this tab and navigate back to the `Deploy as an AI Service` tab. Here, click on the `Reload` button at the top right.
+
+![alt text](images/image74.png)
+
+Now, you can create your New Deployment Space by clicking on the `New deployment space` button.
 
 ![alt text](images/image50.png)
 
@@ -203,7 +215,7 @@ In the custom tool, fill in the following information:
 ```
 This tool fetches all of the relevant data that is necessary to answer queries related to surplus
 ```
-- Input JSON Schema:
+- Input JSON Schema: 
 ```
 {}
 ```
@@ -269,7 +281,7 @@ You have now completed the first part of the lab. You have learned how to naviga
 
 ## watsonx Orchestrate
 
-As shown in the [Solution Architecture](./images/Intelligent%20Assistant%20Architecture.jpeg), we will build and deploy the majority of the agents for the solution in watsonx Orchestrate.
+As shown in the [Solution Architecture](./images/UpdatedIAArchitecture.png), we will build and deploy the majority of the agents for the solution in watsonx Orchestrate.
 
 To get to the watsonx Orchestrate console, go to the [Resources list on the IBM Cloud homepage](https://cloud.ibm.com/resources).
 
@@ -482,6 +494,17 @@ Note that the agent was "reasoning", in other words, determining how to answer t
 ![alt text](images/image27.png)
 
 Note how it selected the Traffic agent to answer the request, which was obviously the right choice in this case.
+
+
+## NOTE: This is a pre-GA version of watsonx Orchestrate
+
+At the current moment, there are some known issues regarding the orchestration agents within watsonx Orchestrate. A major update to fix these issues will go live on June 30, 2025. At the current moment, you can ask the Warehouse Manager Agent to do a single task requiring one agent. The Warehouse Manager Agent should properly route the task.
+
+However, in order to receive a proper answer for a task requiring a different agent, the user must refresh the session (either reload the page or press the circle arrow at the top left of the preview). 
+
+Additionally, multi-agent queries are not working at the moment. The instructions/screenshots below follow an earlier version of this lab where the Warehouse Manager Agent is able to properly orchestrate multiple agents in one query.
+
+### Older lab showing multi-agent orchestration
 
 You can now test the routing to the other agents, possibly using the same or similar prompts as what you used earlier to test them individually:
 - "What is the status of the warehouse docks?"
